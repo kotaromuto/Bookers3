@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'favorites/create'
   root 'home#top'
   get 'home/about' => 'home#about'
   devise_for :users
