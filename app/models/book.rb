@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
 	belongs_to :user
-	has_many :favorites,dependent: :destroy#favoriteと関連付け
+	has_many :favorites, dependent: :destroy#favoriteと関連付け
 	def favorited_by?(user)
 		favorites.where(user_id: user.id).exists?
 	end

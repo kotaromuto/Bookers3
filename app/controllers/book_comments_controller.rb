@@ -7,6 +7,14 @@ class BookCommentsController < ApplicationController
 		redirect_to book_path(book)
 	end
 
+	def destroy
+		book = Book.find(params[:book_id])
+		comments = BookComment.find_by(id:params[:id])
+		#comment = book.book_comments.find_by(id:params[:id])
+		comments.destroy
+		redirect_to book_path(book)
+	end
+
 	private
 	def book_comment_params
 		params.require(:book_comment).permit(:comment)
